@@ -1,0 +1,71 @@
+{
+    "$schema": "./@types/schema/package/index.json",
+    "package_version": 2,
+    "name": "cocos-gizmos",
+    "version": "1.0.0",
+    "author": "Thanh Hoang",
+    "editor": ">=3.8.6",
+    "scripts": {
+        "preinstall": "node ./scripts/preinstall.js",
+        "build": "tsc && node ./scripts/build.js",
+        "watch": "node ./scripts/build.js --watch",
+        "typecheck": "tsc"
+    },
+    "description": "i18n:cocos-gizmos.description",
+    "main": "./dist/main.js",
+    "devDependencies": {
+        "@cocos/creator-types": "^3.8.6",
+        "@types/node": "^18.17.1",
+        "esbuild": "^0.24.2",
+        "typescript": "^5.8.2"
+    },
+    "contributions": {
+        "menu": [
+            {
+                "path": "i18n:menu.extension/Gizmos",
+                "label": "i18n:cocos-gizmos.toggle_gizmos",
+                "message": "toggle-gizmos"
+            },
+            {
+                "path": "i18n:menu.extension/Gizmos",
+                "label": "i18n:cocos-gizmos.toggle_only_selected",
+                "message": "toggle-only-selected"
+            },
+            {
+                "path": "i18n:menu.extension/Gizmos",
+                "label": "i18n:cocos-gizmos.show_info",
+                "message": "show-info"
+            }
+        ],
+        "messages": {
+            "toggle-gizmos": {
+                "methods": ["toggleGizmos"]
+            },
+            "toggle-only-selected": {
+                "methods": ["toggleOnlySelected"]
+            },
+            "show-info": {
+                "methods": ["showInfo"]
+            }
+        },
+        "scene": {
+            "script": "./dist/scene.js"
+        },
+        "asset-db": {
+            "mount": {
+                "path": "./assets",
+                "readonly": false
+            }
+        },
+        "profile": {
+            "editor": {
+                "enabled": {
+                    "default": true
+                },
+                "onlySelected": {
+                    "default": false
+                }
+            }
+        }
+    }
+}
